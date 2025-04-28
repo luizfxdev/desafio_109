@@ -1,0 +1,258 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400|Raleway:300);
+
+// Variáveis
+$btn-width: 200px;
+$btn-height: 60px;
+$primary-color: #2c3e50;
+$secondary-color: #3498db;
+$accent-color: #e74c3c;
+$text-color: #ecf0f1;
+$bg-color: #1a1a2e;
+$bg-image: url('./images/background.jpg');
+
+// Mixins
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin absolute($top: 0, $right: 0, $bottom: 0, $left: 0) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+// Estilos globais
+body {
+    font-family: 'Open Sans', Helvetica, arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg-color;
+    color: $text-color;
+    background-image: $bg-image;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+        transition: 0.5s ease-in-out;
+    }
+
+    i,
+    em,
+    b,
+    strong,
+    span {
+        transition: none;
+    }
+}
+
+.background-overlay {
+    @include absolute(0, 0, 0, 0);
+    background-color: rgba($bg-color, 0.85);
+    z-index: -1;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    padding: 2rem;
+    background-color: rgba(darken($bg-color, 5%), 0.9);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin: 2rem auto;
+}
+
+h1,
+h3,
+h4 {
+    font-family: 'Raleway', 'Open Sans', sans-serif;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    color: lighten($secondary-color, 10%);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: $text-color;
+    font-weight: 300;
+}
+
+.input-group {
+    margin: 2rem 0;
+
+    input {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        border: 2px solid rgba($secondary-color, 0.3);
+        border-radius: 5px;
+        background-color: rgba(lighten($bg-color, 10%), 0.8);
+        color: $text-color;
+        margin-bottom: 1.5rem;
+        transition: border-color 0.3s;
+
+        &:focus {
+            outline: none;
+            border-color: $secondary-color;
+        }
+
+        &::placeholder {
+            color: rgba($text-color, 0.6);
+        }
+    }
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .wrap {
+        flex: 1;
+        min-width: 200px;
+    }
+}
+
+.result-container {
+    margin-top: 2rem;
+
+    h3 {
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+}
+
+.result-box {
+    background-color: rgba(lighten($bg-color, 5%), 0.9);
+    border: 2px solid $secondary-color;
+    border-radius: 5px;
+    padding: 1.5rem;
+    min-height: 60px;
+    font-size: 1.2rem;
+    color: lighten($accent-color, 10%);
+    text-align: center;
+    word-break: break-all;
+    font-family: 'Courier New', monospace;
+}
+
+// Estilos dos botões
+.wrap {
+    margin: 0 auto;
+}
+
+[class^="btn-"] {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    @include size(100%, $btn-height);
+    max-width: $btn-width;
+    margin: 0 auto;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0;
+    transition: color 0.3s ease; // Adicionado para suavizar a transição de cor
+}
+
+.btn-6 {
+    $btn-color: #009186;
+    $btn-color-dark: darken($btn-color, 15%); // Aumentado o contraste
+    $btn-color-light: lighten($btn-color, 15%);
+    color: $btn-color-light;
+
+    span {
+        @include absolute();
+        display: block;
+        @include size(0);
+        border-radius: 50%;
+        background-color: rgba($btn-color-dark, 0.8); // Adicionado opacidade
+        transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+
+    &:hover {
+        color: white;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); // Efeito de brilho
+        border-color: $btn-color-light;
+
+        span {
+            @include size(225%, $btn-width*2.25);
+            background-color: $btn-color-dark; // Remove opacidade no hover
+        }
+    }
+
+    &:active {
+        background-color: transparent; // Mantido como estava
+    }
+}
+
+#resetBtn {
+    $btn-color: #d11507;
+    $btn-color-dark: darken($btn-color, 15%); // Aumentado o contraste
+    $btn-color-light: lighten($btn-color, 15%);
+    color: $btn-color-light;
+
+    span {
+        background-color: rgba($btn-color-dark, 0.8); // Adicionado opacidade
+    }
+
+    &:hover {
+        color: white;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); // Efeito de brilho
+        border-color: $btn-color-light;
+
+        span {
+            background-color: $btn-color-dark; // Remove opacidade no hover
+        }
+    }
+
+    &:active {
+        background-color: transparent; // Mantido como estava
+    }
+}
+
+// Responsividade
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+
+        .wrap {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura do Código Perdido</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400|Raleway:300" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="background-overlay"></div>
+    <div class="container">
+        <h1>Aventura do Código Perdido</h1>
+        <h4>Decifre o mistério e encontre o Código Perdido</h4>
+
+        <div class="input-group">
+            <input type="text" id="inputCode" placeholder="Insira o código desordenado...">
+            <div class="button-group">
+                <div class="wrap">
+                    <a class="btn-6" id="decodeBtn">Decifrar Código<span></span></a>
+                </div>
+                <div class="wrap">
+                    <a class="btn-6" id="resetBtn">Limpar<span></span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-container">
+            <h3>Resultado:</h3>
+            <div id="result" class="result-box"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

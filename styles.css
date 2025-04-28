@@ -1,0 +1,218 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400|Raleway:300);
+body {
+  font-family: "Open Sans", Helvetica, arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a2e;
+  color: #ecf0f1;
+  background-image: url("./images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+body *,
+body *:before,
+body *:after {
+  box-sizing: border-box;
+  transition: 0.5s ease-in-out;
+}
+body i,
+body em,
+body b,
+body strong,
+body span {
+  transition: none;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(26, 26, 46, 0.85);
+  z-index: -1;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  padding: 2rem;
+  background-color: rgba(16.7916666667, 16.7916666667, 29.7083333333, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin: 2rem auto;
+}
+
+h1,
+h3,
+h4 {
+  font-family: "Raleway", "Open Sans", sans-serif;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  color: rgb(95.3179916318, 173.9790794979, 226.6820083682);
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #ecf0f1;
+  font-weight: 300;
+}
+
+.input-group {
+  margin: 2rem 0;
+}
+.input-group input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid rgba(52, 152, 219, 0.3);
+  border-radius: 5px;
+  background-color: rgba(44.4166666667, 44.4166666667, 78.5833333333, 0.8);
+  color: #ecf0f1;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.3s;
+}
+.input-group input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+.input-group input::placeholder {
+  color: rgba(236, 240, 241, 0.6);
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.button-group .wrap {
+  flex: 1;
+  min-width: 200px;
+}
+
+.result-container {
+  margin-top: 2rem;
+}
+.result-container h3 {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.result-box {
+  background-color: rgba(35.2083333333, 35.2083333333, 62.2916666667, 0.9);
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  padding: 1.5rem;
+  min-height: 60px;
+  font-size: 1.2rem;
+  color: rgb(236.5890410959, 117.6849315068, 105.4109589041);
+  text-align: center;
+  word-break: break-all;
+  font-family: "Courier New", monospace;
+}
+
+.wrap {
+  margin: 0 auto;
+}
+
+[class^=btn-] {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 60px;
+  max-width: 200px;
+  margin: 0 auto;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.btn-6 {
+  color: rgb(0, 221.5, 204.6965517241);
+}
+.btn-6 span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(0, 68.5, 63.3034482759, 0.8);
+  transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.btn-6:hover {
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  border-color: rgb(0, 221.5, 204.6965517241);
+}
+.btn-6:hover span {
+  width: 225%;
+  height: 450px;
+  background-color: rgb(0, 68.5, 63.3034482759);
+}
+.btn-6:active {
+  background-color: transparent;
+}
+
+#resetBtn {
+  color: rgb(247.9513888889, 58.6458333333, 44.5486111111);
+}
+#resetBtn span {
+  background-color: rgba(134.9791666667, 13.5625, 4.5208333333, 0.8);
+}
+#resetBtn:hover {
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  border-color: rgb(247.9513888889, 58.6458333333, 44.5486111111);
+}
+#resetBtn:hover span {
+  background-color: rgb(134.9791666667, 13.5625, 4.5208333333);
+}
+#resetBtn:active {
+  background-color: transparent;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  .button-group {
+    flex-direction: column;
+  }
+  .button-group .wrap {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
